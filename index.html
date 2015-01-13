@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Крестики нолики</title>
+	<style>
+		html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+		body {
+			background-color: black;
+		}
+		.actions {
+			text-align: center;
+		}
+		.ai {
+			background-image: url(data:image/jpeg;base64,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);
+		}
+		.container {
+			margin: 50px auto;
+			width: 300px;
+		}
+		.cell {
+			background-color: white;
+			border: 2px solid black;
+			float: left;
+			height: 96px;
+			width: 96px;
+		}
+		.cell:hover {
+			border-color: red;
+		}
+		.player {
+			background-image: url(data:image/jpeg;base64,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);
+		}
+	</style>
+</head>
+<body lang="ru">
+
+<div class="container">
+	<div class="table">
+		<div class="cell" id="a0" onclick="move(0, 'player')"></div>
+		<div class="cell" id="a1" onclick="move(1, 'player')"></div>
+		<div class="cell" id="a2" onclick="move(2, 'player')"></div>
+		<div class="cell" id="a3" onclick="move(3, 'player')"></div>
+		<div class="cell" id="a4" onclick="move(4, 'player')"></div>
+		<div class="cell" id="a5" onclick="move(5, 'player')"></div>
+		<div class="cell" id="a6" onclick="move(6, 'player')"></div>
+		<div class="cell" id="a7" onclick="move(7, 'player')"></div>
+		<div class="cell" id="a8" onclick="move(8, 'player')"></div>
+	</div>
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
